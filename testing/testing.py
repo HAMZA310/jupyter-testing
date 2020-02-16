@@ -69,7 +69,14 @@ class TestImpl(object):
             self.tests_output.append((True, "Passed"))
         else:
             self.tests_output.append((False, f"Failed: {value} is not equal to {reference}"))
-
+    
+    def not_equal(self, value, reference):
+        self.check_scope()
+        if value != reference:
+            self.tests_output.append((True, "Passed"))
+        else:
+            self.tests_output.append((False, f"Failed: {value} is not equal to the required value."))
+    
     def true(self, prop):
         self.check_scope()
         if prop:
